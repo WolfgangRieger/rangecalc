@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Range Calculator Test</title>
+<!--<script src="jquery.min.js"></script>-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="rangecalc.js"></script>
+<script src="rangecalc_test.js"></script>
+</head>
+<!-- --------------------------------------------------------------------------------------------- -->
+<body style="font-family:monospace;">
+<p id="result"></p>
+</body>
+<script>
+"use strict";
+
+$(document).ready(function() {
+    if (testok) {
+		$("#result").html("Test ok.");
+	} else {
+		$("#result").html("Test failed. For error messages and stack trace see web console output.");
+	}
+});
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Range Calculator</title>
+<!--<script src="jquery.min.js"></script>-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="rangecalc.js"></script>
+</head>
+<!-- --------------------------------------------------------------------------------------------- -->
+<body style="font-family:monospace;">
+<h2>Range Calculator</h2>
+<p><b>Input (free format text containing IP addresses):</b></p>
+<textarea id="input" cols="60" rows="10" style="resize:none;"></textarea>
+<p><b>Input addresses (normalized, sorted + duplicates removed):</b></p>
+<textarea id="output" cols="60" rows="10" style="resize:none;"></textarea>
+
+<p><button id="button">Calculate ranges</button></p>
+<p><b>Result:</b></p>
+<p id="tree"></p>
+<script>
+"use strict";
+
+$(document).ready(function() {
+    try {
+        handleclick();
+    } catch (err) {
+        console.log('Range calculator: ' + err.message);
+    }
+});
+
+function handleclick() {
+    $("#button").click(
+        function () {
+            var curtext = $("#input").val();
+            var addressList = getAddressList(curtext);
+            $("#output").val(dumpAddressList(addressList));
+            $("#tree").html(getTreeHtml(addressList));
+        });
+}
+
+</script>
+</body>
+</html>
